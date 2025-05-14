@@ -46,33 +46,33 @@ header, footer {
 
 
   .carousel {
-    width: 80vw; /* 100% da largura da viewport */
-    max-height: 600px; /* altura fixa máxima */
-    height: 600px; /* altura fixa para manter proporção */
+    width: 80vw; 
+    max-height: 600px; 
+    height: 600px; 
     margin: 30px auto;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
   }
-  /* Imagens do carousel, tamanho completo do container */
+  
   .carousel img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* cobre área sem distorção */
+    object-fit: cover; 
     opacity: 0;/*essencial*/
     position: absolute;
     top: 0;
     left: 0;
     transition: opacity 1s ease-in-out;
     border-radius: 10px;
-    pointer-events: none; /* evita clique na imagem que está invisível */
+    pointer-events: none; 
   }
 
   /* Imagem ativa visível */
   .carousel img.active {
     opacity: 1;
     position: relative;
-    pointer-events: auto; /* habilita clique na imagem ativa */
+    pointer-events: auto; 
   }
   /* Botões simples posicionados nas laterais */
   .prev, .next {
@@ -94,10 +94,10 @@ header, footer {
 
 /*fundo parcial*/
 .section-fundo-parcial {
-    width: 100%; /* ocupa 100% da largura da tela */
-    background: var(--c4); /* cor azul para o fundo parcial */
-    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
-    box-sizing: border-box; /* inclui padding na largura total */
+    width: 100%; 
+    background: var(--c4); 
+    padding: 40px 20px; 
+    box-sizing: border-box; 
 }
 
 /* Cards flip */
@@ -108,25 +108,25 @@ header, footer {
     display: flex;
     gap: 20px;
     justify-content: center;
-    perspective: 1000px; /* Efeito 3D */
+    perspective: 1000px; /
 }
 
-/* Container para posicionar a frente e o verso */
+
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s; /* Transição suave */
-    transform-style: preserve-3d; /* Mantém o estilo 3D */
+    transition: transform 0.8s; 
+    transform-style: preserve-3d; 
 }
 
-/* Efeito de flip ao passar o mouse sobre o card */
+
 .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Gira o card */
+    transform: rotateY(180deg); 
 }
 
-/* Posiciona a frente e o verso */
+
 .flip-card-front, .flip-card-back {
     position: absolute;
   width: 100%;
@@ -139,9 +139,9 @@ header, footer {
   align-items: center;
 }
 
-/* Estilo da frente do card */
+
 .flip-card-front {
-    background-color: var(--c4); /* Cor da frente */
+    background-color: var(--c4); 
 }
 
 .flip-card-front h1 {
@@ -149,14 +149,14 @@ header, footer {
     display: flex;
     justify-content: center;
     margin: auto;
-    padding: 190px; /* Centraliza o texto verticalmente */
+    padding: 190px; 
 }
 
 /* Estilo do verso do card */
 .flip-card-back {
-    background-color: var(--t2); /* Cor do verso */
+    background-color: var(--t2); 
     color: var(--c4);
-    transform: rotateY(180deg); /* Gira o verso para que fique oculto inicialmente */
+    transform: rotateY(180deg); 
 }
 
 .flip-card-back h1 {
@@ -210,44 +210,44 @@ header, footer {
   /*Figma*/
 
   .section-fundo-parcial-2 {
-    width: 100%; /* ocupa 100% da largura da tela */
+    width: 100%; 
     height: 70vh;
-    background: var(--c4); /* cor azul para o fundo parcial */
-    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
-    box-sizing: border-box; /* inclui padding na largura total */
+    background: var(--c4); 
+    padding: 40px 20px; 
+    box-sizing: border-box; /
   }
 
-  /* Container principal usando flexbox para posicionar cards à esquerda e texto à direita */
+
   .container {
     display: flex;
-    align-items: center; /* alinha verticalmente os elementos */
+    align-items: center;
     margin: 30px auto;
-    background: #000000; /* fundo do container mais claro que o da página */
-    border: 2px solid white; /* borda branca ao redor */
-    border-radius: 16px; /* cantos arredondados */
-    padding: 40px 40px 40px 40px; /* espaçamento interno uniforme */
-    max-width: 900px; /* limita a largura máxima */
-    width: 90%; /* largura responsiva */
+    background: #000000;
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 40px 40px 40px 40px; 
+    max-width: 900px; 
+    width: 90%; 
     height: 30vh;
-    box-sizing: border-box; /* inclui padding na largura total */
-    /* Sombras brancas animadas para dar efeito de brilho pulsante */
+    box-sizing: border-box; 
+    
     box-shadow:
       0 0 20px 5px rgba(255, 255, 255, 0.25);
-    /* Animações de entrada e da sombra */
+    
     animation: 
-floatInUp 1s ease forwards,   /* animação para subir e aparecer */
-      shadowPulse 3s ease-in-out infinite; /* animação pulsante da sombra */
-    opacity: 0; /* começa invisível para animação */
-    transform: translateY(30px); /* começa deslocado para baixo */
+floatInUp 1s ease forwards,   
+      shadowPulse 3s ease-in-out infinite; 
+    opacity: 0; 
+    transform: translateY(30px); 
   }
-  /* Animação para o container aparecer subindo e ganhando opacidade */
+  
   @keyframes floatInUp {
     to {
-      opacity: 1;             /* torna visível */
-      transform: translateY(0); /* volta para posição original */
+      opacity: 1;             
+      transform: translateY(0);
     }
   }
-  /* Animação da sombra pulsando suavemente para dar destaque */
+ 
   @keyframes shadowPulse {
     0%, 100% {
       box-shadow:
@@ -258,103 +258,102 @@ floatInUp 1s ease forwards,   /* animação para subir e aparecer */
         0 0 25px 8px rgba(255, 255, 255, 0.45);
     }
   }
-  /* Container dos cards flutuantes */
+  
   .floating-cards {
-    display: flex; /* alinha cards lado a lado */
-    gap: 30px; /* espaço entre os cards */
-    flex-shrink: 0; /* impede cards de encolherem */
-    /* Move todo o conjunto dos cards para cima metade da altura deles, para "flutuar" fora da div */
-    transform: translateY(-140px); /* metade da altura dos cards que é 280px */
+    display: flex; 
+    gap: 30px; 
+    flex-shrink: 0;
+    
+    transform: translateY(-140px); 
   }
-  /* Estilo de cada card simulando phone */
+ 
   .floating-card {
-    background: linear-gradient(135deg, #0e03b3, #000000); /* gradiente escuro elegante */
-    border-radius: 30px;  /* cantos arredondados para simular aparelho */
-    width: 140px;  /* largura fixa para uniformidade */
-    height: 280px; /* altura fixa para proporção vertical */
+    background: linear-gradient(135deg, #0e03b3, #000000);
+    border-radius: 30px; 
+    width: 140px;  
+    height: 280px; 
     box-shadow:
-      0 8px 20px rgba(17, 16, 16, 0.8); /* sombra escura para efeito de profundidade */
-    cursor: default; /* cursor padrão */
-    /* Animação suave de flutuação vertical para dar vida */
+      0 8px 20px rgba(17, 16, 16, 0.8); 
+    cursor: default; 
+    
     animation: floatUpDown 4s ease-in-out infinite;
     display: flex;
     flex-direction: column;
-     align-items: center; /* centraliza conteúdo interno horizontalmente */
-    padding: 15px 10px; /* espaçamento interno */
+     align-items: center;
+    padding: 15px 10px; 
   }
-  /* O segundo card tem animação atrasada para que a flutuação não seja sincronizada */
+  
   .floating-card:nth-child(2) {
     animation-delay: 2s;
   }
-  /* Animação que move o card para cima e para baixo suavemente */
+  
   @keyframes floatUpDown {
     0%, 100% {
-      transform: translateY(0); /* posição estática */
-      box-shadow: 0 8px 20px rgba(107, 170, 241, 0.8); /* sombra normal */
+      transform: translateY(0); 
+      box-shadow: 0 8px 20px rgba(107, 170, 241, 0.8); 
     }
     50% {
-       transform: translateY(-15px); /* sobe 15px */
-      box-shadow: 0 18px 30px rgb(137, 171, 216); /* sombra maior para profundidade */
+       transform: translateY(-15px); 
+      box-shadow: 0 18px 30px rgb(137, 171, 216); 
     }
   }
-  /* Estilo da imagem dentro do card para preencher e arredondar */
   .floating-card img {
     border-radius: 20px;
-    width: 100%;    /* ocupar toda a largura do card */
-    height: 100%;   /* ocupar toda a altura do card */
-    object-fit: cover; /* cobre o conteúdo, cortando ou expandindo */
+    width: 100%;    
+    height: 100%;   
+    object-fit: cover; 
   }
-  /* Texto centralizado na área à direita do container */
+ 
   .centered-text {
-    color: rgb(141, 163, 221); /* cor clara para contraste com fundo escuro */
-    font-size: 1.6rem; /* tamanho maior para destaque */
-    font-weight: 600;  /* peso da fonte para destaque */
-    text-align: center; /* centraliza o texto */
-    margin-left: 40px; /* distância dos cards à esquerda */
-    flex: 1; /* ocupa o espaço restante disponível */
-    margin-top: 30px; /* livra o texto para baixo dos cards flutuantes */
+    color: rgb(141, 163, 221);
+    font-size: 1.6rem; 
+    font-weight: 600;  
+    text-align: center; 
+    margin-left: 40px; 
+    flex: 1; 
+    margin-top: 30px; 
   }
-  /* Ajustes responsivos para telas estreitas */
+  
   @media (max-width: 620px) {
     .container {
-      flex-direction: column; /* empilha verticalmente */
+      flex-direction: column; 
       padding: 30px 20px;
     }
     .floating-cards {
-      margin-bottom: 30px; /* espaçamento abaixo dos cards */
-      transform: translateY(0); /* remove o deslocamento dos cards */
+      margin-bottom: 30px; 
+      transform: translateY(0); 
     }
     .centered-text {
-      margin-left: 0; /* remove margem à esquerda */
-      font-size: 1.4rem; /* reduz fonte */
-      margin-top: 0; /* remove espaçamento ao topo */
+      margin-left: 0; 
+      font-size: 1.4rem; 
+      margin-top: 0; 
     }
   }
 
 
   .section-fundo-parcial-3 {
-    width: 100%; /* ocupa 100% da largura da tela */
+    width: 100%; 
     height: 70vh;
     display:flex;
     justify-content: center;
     gap: 20px;
-    background: rgba(155, 175, 206, 0.651) ; /* cor azul para o fundo parcial */
-    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
-    box-sizing: border-box; /* inclui padding na largura total */
+    background: rgba(155, 175, 206, 0.651) ; 
+    padding: 40px 20px; 
+    box-sizing: border-box; 
   }
 
 .card {
-  position: relative; /* para posicionar elementos filhos absolutamente */
+  position: relative; 
   width: 35%;
   height: 50vh;
-  background-color: #000000; /* cor de fundo clara */
-  border-radius: 10px; /* cantos arredondados */
-  display: flex; /* usa flexbox para centralizar conteúdo */
-  align-items: center; /* centraliza verticalmente */
-  justify-content: center; /* centraliza horizontalmente */
-  overflow: hidden; /* esconde overflow para animações */
-  box-shadow: 0 0 0 5px #ffffff80; /* sombra suave e esmaecida */
-  transition: transform 0.6s, box-shadow 0.6s; /* animação suave na transformação e sombra */
+  background-color: #000000; 
+  border-radius: 10px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden; 
+  box-shadow: 0 0 0 5px #ffffff80; 
+  transition: transform 0.6s, box-shadow 0.6s; 
  max-width:auto;
   height: 400px;
   display: flex;
@@ -364,25 +363,23 @@ floatInUp 1s ease forwards,   /* animação para subir e aparecer */
 }
 
 
-/* Efeito ao passar o mouse sobre o card */
 .card:hover {
-  transform: scale(1.05); /* aumenta o tamanho levemente */
-  box-shadow: 0 8px 16px rgba(175, 160, 160, 0.2); /* sombra mais visível */
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(175, 160, 160, 0.2); 
 }
 
-/* Container para o conteúdo textual do card */
 .card__content {
-  position: absolute; /* posiciona sobre o card */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 20px;
-  box-sizing: border-box; /* inclui padding na largura/altura total */
-  background-color: var(--t1); /* mesma cor do card para continuidade */
-  transform: rotateX(-90deg); /* conteúdo inicialmente escondido com rotação 3D */
-  transform-origin: bottom; /* ponto de origem da rotação na borda inferior */
-  transition: transform 0.6s; /* animação suave da rotação */
+  box-sizing: border-box; 
+  background-color: var(--t1); 
+  transform: rotateX(-90deg); 
+  transform-origin: bottom; 
+  transition: transform 0.6s; 
 
   & img {
     width: 100%;
@@ -390,39 +387,37 @@ floatInUp 1s ease forwards,   /* animação para subir e aparecer */
   }
 }
 
-/* Ao passar o mouse no card, o conteúdo textual aparece com rotação para 0 graus */
 .card:hover .card__content {
   transform: rotateX(0deg);
 }
 
-/* Estilo para o título do card */
+
 .card__title {
-  margin: 0; /* remove margens padrão */
-  font-size: 50px; /* tamanho maior para destaque */
-  color: #ffefef; /* cor escura para o texto */
-  font-weight: 700; /* negrito */
+  margin: 0; 
+  font-size: 50px; 
+  color: #ffefef; 
+  font-weight: 700; 
   text-align: center;
 }
 
-/* Estilo para a descrição do card */
 .card__description {
-  margin: 10px 0 0; /* margem superior para separar do título */
-  font-size: 14px; /* tamanho menor para texto descritivo */
-  color: #b1a4a4; /* cor cinza para suavizar */
-  line-height: 1.4; /* espaçamento entre linhas para melhorar leitura */
+  margin: 10px 0 0; 
+  font-size: 14px; 
+  color: #b1a4a4; 
+  line-height: 1.4;
 }
 .card__content {
-  position: absolute; /* posiciona sobre o card */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 20px;
-  box-sizing: border-box; /* inclui padding na largura/altura total */
-  background-color: var(--t1); /* mesma cor do card para continuidade */
-  transform: rotateX(-90deg); /* conteúdo inicialmente escondido com rotação 3D */
-  transform-origin: bottom; /* ponto de origem da rotação na borda inferior */
-  transition: transform 0.6s; /* animação suave da rotação */
+  box-sizing: border-box; 
+  background-color: var(--t1); 
+  transform: rotateX(-90deg); 
+  transform-origin: bottom; 
+  transition: transform 0.6s; 
 
   & img {
     width: 100%;
@@ -434,9 +429,9 @@ floatInUp 1s ease forwards,   /* animação para subir e aparecer */
     width: 90%;
     height: 80vh;
     background-color: var(--c2);
-     border: 5px solid rgb(6, 17, 116); /* borda branca ao redor */
-    border-radius: 50px; /* cantos arredondados */
-    padding: 40px 40px 40px 40px; /* espaçamento interno uniforme */
+     border: 5px solid rgb(6, 17, 116);
+    border-radius: 50px; 
+    padding: 40px 40px 40px 40px; 
     margin: 50px;
   
   & h1{
@@ -462,7 +457,7 @@ floatInUp 1s ease forwards,   /* animação para subir e aparecer */
 
   }
 
-  /* From Uiverse.io by BlackisPlay */ 
+  
 #ghost {
   position: relative;
   scale: 0.8;
