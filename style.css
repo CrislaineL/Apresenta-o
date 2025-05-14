@@ -1,0 +1,785 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --c1: #E4C1F9 ;
+    --c2: #F9F5FF ;
+    --c3: #F2E6FF ;
+    --c4: #04217efa ;
+    --c5: #A77BCA ;
+    --t1: rgba(0, 0, 0, 0.8)  ;
+    --t2: rgba(255, 255, 255, 0.8) ;
+}
+
+
+body {
+    background: rgb(185, 204, 223);
+}
+
+
+header, footer {
+    background-color:var(--c4);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    & h1{
+        
+        color: rgb(185, 204, 223);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 45px;
+        padding: 0px;
+    }
+    & h2{
+        
+        color: rgb(185, 204, 223);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        padding: 0px;
+    }
+  }
+
+
+  /* Carousel */
+
+
+  .carousel {
+    width: 80vw; /* 100% da largura da viewport */
+    max-height: 600px; /* altura fixa máxima */
+    height: 600px; /* altura fixa para manter proporção */
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  /* Imagens do carousel, tamanho completo do container */
+  .carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* cobre área sem distorção */
+    opacity: 0;/*essencial*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 10px;
+    pointer-events: none; /* evita clique na imagem que está invisível */
+  }
+
+  /* Imagem ativa visível */
+  .carousel img.active {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto; /* habilita clique na imagem ativa */
+  }
+  /* Botões simples posicionados nas laterais */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(185, 204, 223);
+    color: var(--c4);
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+    user-select: none;
+    z-index: 10;
+  }
+  .prev { left: 15px; }
+  .next { right: 15px; }
+
+/*fundo parcial*/
+.section-fundo-parcial {
+    width: 100%; /* ocupa 100% da largura da tela */
+    background: var(--c4); /* cor azul para o fundo parcial */
+    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
+    box-sizing: border-box; /* inclui padding na largura total */
+}
+
+/* Cards flip */
+.flip-card {
+    background-color: transparent;
+    max-width: auto;
+    height: 400px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    perspective: 1000px; /* Efeito 3D */
+}
+
+/* Container para posicionar a frente e o verso */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s; /* Transição suave */
+    transform-style: preserve-3d; /* Mantém o estilo 3D */
+}
+
+/* Efeito de flip ao passar o mouse sobre o card */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); /* Gira o card */
+}
+
+/* Posiciona a frente e o verso */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo da frente do card */
+.flip-card-front {
+    background-color: var(--c4); /* Cor da frente */
+}
+
+.flip-card-front h1 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 190px; /* Centraliza o texto verticalmente */
+}
+
+/* Estilo do verso do card */
+.flip-card-back {
+    background-color: var(--t2); /* Cor do verso */
+    color: var(--c4);
+    transform: rotateY(180deg); /* Gira o verso para que fique oculto inicialmente */
+}
+
+.flip-card-back h1 {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.text{
+    width: 100%;
+    height: 3vh;
+    background-color: var(--c2);
+  & h1{
+        
+    color: var(--c4);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    }
+}
+.gant {
+    width: 70%;
+    height: 20vh;
+    background-color: var(--c2);
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+ 
+  .gant img {
+
+    width: 90%;
+    height: 80%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+
+  }
+
+  .class{
+    width: 100%;
+    height: 3vh;
+    
+    background-color: var(--c2);
+  }
+
+  /*Figma*/
+
+  .section-fundo-parcial-2 {
+    width: 100%; /* ocupa 100% da largura da tela */
+    height: 70vh;
+    background: var(--c4); /* cor azul para o fundo parcial */
+    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
+    box-sizing: border-box; /* inclui padding na largura total */
+  }
+
+  /* Container principal usando flexbox para posicionar cards à esquerda e texto à direita */
+  .container {
+    display: flex;
+    align-items: center; /* alinha verticalmente os elementos */
+    margin: 30px auto;
+    background: #000000; /* fundo do container mais claro que o da página */
+    border: 2px solid white; /* borda branca ao redor */
+    border-radius: 16px; /* cantos arredondados */
+    padding: 40px 40px 40px 40px; /* espaçamento interno uniforme */
+    max-width: 900px; /* limita a largura máxima */
+    width: 90%; /* largura responsiva */
+    height: 30vh;
+    box-sizing: border-box; /* inclui padding na largura total */
+    /* Sombras brancas animadas para dar efeito de brilho pulsante */
+    box-shadow:
+      0 0 20px 5px rgba(255, 255, 255, 0.25);
+    /* Animações de entrada e da sombra */
+    animation: 
+floatInUp 1s ease forwards,   /* animação para subir e aparecer */
+      shadowPulse 3s ease-in-out infinite; /* animação pulsante da sombra */
+    opacity: 0; /* começa invisível para animação */
+    transform: translateY(30px); /* começa deslocado para baixo */
+  }
+  /* Animação para o container aparecer subindo e ganhando opacidade */
+  @keyframes floatInUp {
+    to {
+      opacity: 1;             /* torna visível */
+      transform: translateY(0); /* volta para posição original */
+    }
+  }
+  /* Animação da sombra pulsando suavemente para dar destaque */
+  @keyframes shadowPulse {
+    0%, 100% {
+      box-shadow:
+       0 0 20px 5px rgba(255, 255, 255, 0.25);
+    }
+    50% {
+      box-shadow:
+        0 0 25px 8px rgba(255, 255, 255, 0.45);
+    }
+  }
+  /* Container dos cards flutuantes */
+  .floating-cards {
+    display: flex; /* alinha cards lado a lado */
+    gap: 30px; /* espaço entre os cards */
+    flex-shrink: 0; /* impede cards de encolherem */
+    /* Move todo o conjunto dos cards para cima metade da altura deles, para "flutuar" fora da div */
+    transform: translateY(-140px); /* metade da altura dos cards que é 280px */
+  }
+  /* Estilo de cada card simulando phone */
+  .floating-card {
+    background: linear-gradient(135deg, #0e03b3, #000000); /* gradiente escuro elegante */
+    border-radius: 30px;  /* cantos arredondados para simular aparelho */
+    width: 140px;  /* largura fixa para uniformidade */
+    height: 280px; /* altura fixa para proporção vertical */
+    box-shadow:
+      0 8px 20px rgba(17, 16, 16, 0.8); /* sombra escura para efeito de profundidade */
+    cursor: default; /* cursor padrão */
+    /* Animação suave de flutuação vertical para dar vida */
+    animation: floatUpDown 4s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+     align-items: center; /* centraliza conteúdo interno horizontalmente */
+    padding: 15px 10px; /* espaçamento interno */
+  }
+  /* O segundo card tem animação atrasada para que a flutuação não seja sincronizada */
+  .floating-card:nth-child(2) {
+    animation-delay: 2s;
+  }
+  /* Animação que move o card para cima e para baixo suavemente */
+  @keyframes floatUpDown {
+    0%, 100% {
+      transform: translateY(0); /* posição estática */
+      box-shadow: 0 8px 20px rgba(107, 170, 241, 0.8); /* sombra normal */
+    }
+    50% {
+       transform: translateY(-15px); /* sobe 15px */
+      box-shadow: 0 18px 30px rgb(137, 171, 216); /* sombra maior para profundidade */
+    }
+  }
+  /* Estilo da imagem dentro do card para preencher e arredondar */
+  .floating-card img {
+    border-radius: 20px;
+    width: 100%;    /* ocupar toda a largura do card */
+    height: 100%;   /* ocupar toda a altura do card */
+    object-fit: cover; /* cobre o conteúdo, cortando ou expandindo */
+  }
+  /* Texto centralizado na área à direita do container */
+  .centered-text {
+    color: rgb(141, 163, 221); /* cor clara para contraste com fundo escuro */
+    font-size: 1.6rem; /* tamanho maior para destaque */
+    font-weight: 600;  /* peso da fonte para destaque */
+    text-align: center; /* centraliza o texto */
+    margin-left: 40px; /* distância dos cards à esquerda */
+    flex: 1; /* ocupa o espaço restante disponível */
+    margin-top: 30px; /* livra o texto para baixo dos cards flutuantes */
+  }
+  /* Ajustes responsivos para telas estreitas */
+  @media (max-width: 620px) {
+    .container {
+      flex-direction: column; /* empilha verticalmente */
+      padding: 30px 20px;
+    }
+    .floating-cards {
+      margin-bottom: 30px; /* espaçamento abaixo dos cards */
+      transform: translateY(0); /* remove o deslocamento dos cards */
+    }
+    .centered-text {
+      margin-left: 0; /* remove margem à esquerda */
+      font-size: 1.4rem; /* reduz fonte */
+      margin-top: 0; /* remove espaçamento ao topo */
+    }
+  }
+
+
+  .section-fundo-parcial-3 {
+    width: 100%; /* ocupa 100% da largura da tela */
+    height: 70vh;
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(155, 175, 206, 0.651) ; /* cor azul para o fundo parcial */
+    padding: 40px 20px; /* espaçamento interno vertical e horizontal */
+    box-sizing: border-box; /* inclui padding na largura total */
+  }
+
+.card {
+  position: relative; /* para posicionar elementos filhos absolutamente */
+  width: 35%;
+  height: 50vh;
+  background-color: #000000; /* cor de fundo clara */
+  border-radius: 10px; /* cantos arredondados */
+  display: flex; /* usa flexbox para centralizar conteúdo */
+  align-items: center; /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  overflow: hidden; /* esconde overflow para animações */
+  box-shadow: 0 0 0 5px #ffffff80; /* sombra suave e esmaecida */
+  transition: transform 0.6s, box-shadow 0.6s; /* animação suave na transformação e sombra */
+ max-width:auto;
+  height: 400px;
+  display: flex;
+  gap: 20px;
+  margin: auto;
+  justify-content: center;
+}
+
+
+/* Efeito ao passar o mouse sobre o card */
+.card:hover {
+  transform: scale(1.05); /* aumenta o tamanho levemente */
+  box-shadow: 0 8px 16px rgba(175, 160, 160, 0.2); /* sombra mais visível */
+}
+
+/* Container para o conteúdo textual do card */
+.card__content {
+  position: absolute; /* posiciona sobre o card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* inclui padding na largura/altura total */
+  background-color: var(--t1); /* mesma cor do card para continuidade */
+  transform: rotateX(-90deg); /* conteúdo inicialmente escondido com rotação 3D */
+  transform-origin: bottom; /* ponto de origem da rotação na borda inferior */
+  transition: transform 0.6s; /* animação suave da rotação */
+
+  & img {
+    width: 100%;
+
+  }
+}
+
+/* Ao passar o mouse no card, o conteúdo textual aparece com rotação para 0 graus */
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+/* Estilo para o título do card */
+.card__title {
+  margin: 0; /* remove margens padrão */
+  font-size: 50px; /* tamanho maior para destaque */
+  color: #ffefef; /* cor escura para o texto */
+  font-weight: 700; /* negrito */
+  text-align: center;
+}
+
+/* Estilo para a descrição do card */
+.card__description {
+  margin: 10px 0 0; /* margem superior para separar do título */
+  font-size: 14px; /* tamanho menor para texto descritivo */
+  color: #b1a4a4; /* cor cinza para suavizar */
+  line-height: 1.4; /* espaçamento entre linhas para melhorar leitura */
+}
+.card__content {
+  position: absolute; /* posiciona sobre o card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* inclui padding na largura/altura total */
+  background-color: var(--t1); /* mesma cor do card para continuidade */
+  transform: rotateX(-90deg); /* conteúdo inicialmente escondido com rotação 3D */
+  transform-origin: bottom; /* ponto de origem da rotação na borda inferior */
+  transition: transform 0.6s; /* animação suave da rotação */
+
+  & img {
+    width: 100%;
+
+  }
+}
+
+.trello{
+    width: 90%;
+    height: 80vh;
+    background-color: var(--c2);
+     border: 5px solid rgb(6, 17, 116); /* borda branca ao redor */
+    border-radius: 50px; /* cantos arredondados */
+    padding: 40px 40px 40px 40px; /* espaçamento interno uniforme */
+    margin: 50px;
+  
+  & h1{
+        
+    color: var(--c4);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    }
+}
+ 
+  .trello img {
+
+    width: 90%;
+    height: 60%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    
+
+  }
+
+  /* From Uiverse.io by BlackisPlay */ 
+#ghost {
+  position: relative;
+  scale: 0.8;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#red {
+  animation: upNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+
+@keyframes upNDown {
+  0%,
+  49% {
+    transform: translateY(0px);
+  }
+  50%,
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+#top0,
+#top1,
+#top2,
+#top3,
+#top4,
+#st0,
+#st1,
+#st2,
+#st3,
+#st4,
+#st5 {
+  background-color: red;
+}
+
+#top0 {
+  grid-area: top0;
+}
+
+#top1 {
+  grid-area: top1;
+}
+
+#top2 {
+  grid-area: top2;
+}
+
+#top3 {
+  grid-area: top3;
+}
+
+#top4 {
+  grid-area: top4;
+}
+
+#st0 {
+  grid-area: st0;
+}
+
+#st1 {
+  grid-area: st1;
+}
+
+#st2 {
+  grid-area: st2;
+}
+
+#st3 {
+  grid-area: st3;
+}
+
+#st4 {
+  grid-area: st4;
+}
+
+#st5 {
+  grid-area: st5;
+}
+
+#an1 {
+  grid-area: an1;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an18 {
+  grid-area: an18;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an2 {
+  grid-area: an2;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an17 {
+  grid-area: an17;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an3 {
+  grid-area: an3;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an16 {
+  grid-area: an16;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an4 {
+  grid-area: an4;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an15 {
+  grid-area: an15;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an6 {
+  grid-area: an6;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an12 {
+  grid-area: an12;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an7 {
+  grid-area: an7;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an13 {
+  grid-area: an13;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an9 {
+  grid-area: an9;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an10 {
+  grid-area: an10;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an8 {
+  grid-area: an8;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an11 {
+  grid-area: an11;
+  animation: flicker0 infinite 0.5s;
+}
+
+@keyframes flicker0 {
+  0%,
+  49% {
+    background-color: red;
+  }
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flicker1 {
+  0%,
+  49% {
+    background-color: transparent;
+  }
+  50%,
+  100% {
+    background-color: red;
+  }
+}
+
+#eye {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+#eye::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+#eye1::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#pupil {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+#pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+@keyframes eyesMovement {
+  0%,
+  49% {
+    transform: translateX(0px);
+  }
+  50%,
+  99% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#shadow {
+  background-color: black;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(80deg);
+  filter: blur(20px);
+  top: 80%;
+  animation: shadowMovement infinite 0.5s;
+}
+
+@keyframes shadowMovement {
+  0%,
+  49% {
+    opacity: 0.5;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}

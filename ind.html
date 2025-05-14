@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Explore Mundo - Sua Próxima Aventura</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #2980b9, #6dd5fa, #ffffff);
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: #34495e;
+      color: #ecf0f1;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin: 0;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    nav {
+      margin-top: 0.3rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      gap: 1.2rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    nav ul li:hover {
+      color: #6dd5fa;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem 1rem 5rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+
+    .btn-book {
+      background: #6dd5fa;
+      color: #1b263b;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.4s ease;
+      user-select: none;
+      box-shadow: 0 5px 15px rgba(109, 213, 250, 0.6);
+    }
+    .btn-book:hover {
+      background: #2980b9;
+      color: #fff;
+      box-shadow: 0 7px 18px rgba(41, 128, 185, 0.78);
+    }
+
+    /* Section Titles */
+    section {
+      max-width: 1000px;
+      margin: 3rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    section h3 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #6dd5fa;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.6rem;
+      color: #1b263b;
+      user-select: none;
+    }
+
+    /* Destinations */
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .destination-card {
+      background: #ecf0f1;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .destination-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+    }
+
+    .destination-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 5px solid #6dd5fa;
+    }
+
+    .destination-info {
+      padding: 1rem 1rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .destination-info h4 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #34495e;
+    }
+
+    .destination-info p {
+      margin: 0.4rem 0 1rem;
+      font-weight: 300;
+      color: #7f8c8d;
+      flex-grow: 1;
+    }
+
+    .destination-info button {
+      align-self: flex-start;
+      background: #6dd5fa;
+      border: none;
+      border-radius: 30px;
+      color: #1b263b;
+      font-weight: 700;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(109, 213, 250, 0.6);
+      transition: background 0.3s ease;
+    }
+    .destination-info button:hover {
+      background: #2980b9;
+      color: #fff;
+      box-shadow: 0 7px 20px rgba(41, 128, 185, 0.8);
+    }
+
+    /* Carousel Section */
+    .carousel {
+      position: relative;
+      width: 320px;
+      max-width: 100%;
+      height: 440px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(41, 128, 185, 0.6);
+      background: #f0f4f8;
+      user-select: none;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      pointer-events: none;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .carousel-buttons button {
+      pointer-events: auto;
+      background: rgba(41, 128, 185, 0.7);
+      border: none;
+      color: white;
+      font-size: 1.9rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(41, 128, 185, 0.6);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .carousel-buttons button:hover {
+      background: rgba(41, 128, 185, 0.95);
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 14px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .carousel-indicators button {
+      background: rgba(109, 213, 250, 0.7);
+      border: none;
+      width: 12px;
+      height: 12px;
+      margin: 0 7px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.4s ease;
+      user-select: none;
+    }
+
+    .carousel-indicators button.active {
+      background: #2980b9;
+      box-shadow: 0 0 8px #2980b9;
+    }
+
+    /* About Section */
+    .about {
+      background: #ffffffdd;
+      border-radius: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .about h3 {
+      color: #34495e;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.9rem;
+    }
+
+    .about p {
+      font-weight: 400;
+      line-height: 1.6;
+      color: #4b6377;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 1rem;
+      user-select: none;
+    }
+
+    .testimonials h3 {
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: #34495e;
+    }
+
+    .testimonial-card {
+      background: #ecf0f1;
+      padding: 1.5rem 1.6rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1.8rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #34495e;
+      font-style: italic;
+      position: relative;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .testimonial-author {
+      margin-top: 1rem;
+      text-align: right;
+      font-style: normal;
+      font-weight: 700;
+      color: #2980b9;
+      font-size: 1.1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: #ffffffdd;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      padding: 2rem 2rem 3rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .contact h3 {
+      color: #34495e;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    input, textarea {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1.8px solid #ddd;
+      font-size: 1rem;
+      outline-offset: 2px;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #2980b9;
+      box-shadow: 0 0 6px rgba(41,128,185,0.6);
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button.submit-btn {
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+      box-shadow: 0 5px 15px rgba(41, 128, 185, 0.6);
+    }
+    button.submit-btn:hover {
+      background: #1c3f66;
+      box-shadow: 0 7px 18px rgba(28, 63, 102, 0.85);
+    }
+
+    /* Footer */
+    footer {
+      background: #34495e;
+      color: #ecf0f1;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.25);
+    }
+
+    /* Responsive Mobile */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      nav ul li {
+        font-size: 0.9rem;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .carousel {
+        width: 90vw;
+        height: 360px;
+      }
+
+      .carousel img {
+        height: 360px;
+      }
+
+      .destinations {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin: 2rem 1rem 3rem;
+      }
+
+      .about, .contact {
+        padding: 1.5rem 1.5rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore Mundo</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#destinos" tabindex="0" style="color:inherit;text-decoration:none;">Destinos</a></li>
+        <li><a href="#carousel" tabindex="0" style="color:inherit;text-decoration:none;">Galeria</a></li>
+        <li><a href="#sobre" tabindex="0" style="color:inherit;text-decoration:none;">Sobre Nós</a></li>
+        <li><a href="#depoimentos" tabindex="0" style="color:inherit;text-decoration:none;">Depoimentos</a></li>
+        <li><a href="#contato" tabindex="0" style="color:inherit;text-decoration:none;">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Banner com imagem de destino paradisíaco">
+    <div class="hero-content">
+      <h2>Descubra seu próximo destino inesquecível</h2>
+      <p>Viagens personalizadas para todos os gostos e estilos. Explore o mundo com conforto e segurança.</p>
+      <button class="btn-book" tabindex="0" onclick="alert('Obrigado pelo interesse! Em breve, você poderá reservar suas viagens aqui!')">Reserve Agora</button>
+    </div>
+  </section>
+
+  <section id="destinos" aria-label="Destinos populares">
+    <h3>Destinos populares</h3>
+    <div class="destinations">
+      <article class="destination-card" tabindex="0" aria-label="Destino Praia do Caribe">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=720&q=80" alt="Praia tropical com coqueiros e mar azul-cristalino" />
+        <div class="destination-info">
+          <h4>Praia do Caribe</h4>
+          <p>Areias brancas, águas cristalinas e sol o ano todo. Perfeito para relaxar ou praticar esportes aquáticos.</p>
+          <button aria-label="Saiba mais sobre Praia do Caribe">Saiba Mais</button>
+        </div>
+      </article>
+      <article class="destination-card" tabindex="0" aria-label="Destino Alpes Suíços">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=720&q=80" alt="Montanhas cobertas de neve" />
+        <div class="destination-info">
+          <h4>Alpes Suíços</h4>
+          <p>Para amantes de neve e esportes de inverno, com paisagens de tirar o fôlego e chalés aconchegantes.</p>
+          <button aria-label="Saiba mais sobre Alpes Suíços">Saiba Mais</button>
+        </div>
+      </article>
+      <article class="destination-card" tabindex="0" aria-label="Destino Paris, França">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=720&q=80" alt="Vista da Torre Eiffel iluminada à noite" />
+        <div class="destination-info">
+          <h4>Paris, França</h4>
+          <p>A cidade do amor, cheia de arte, história, gastronomia mundialmente famosa e charme único.</p>
+          <button aria-label="Saiba mais sobre Paris, França">Saiba Mais</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="carousel" aria-label="Galeria de imagens de viagens">
+    <h3>Galeria de Destinos</h3>
+    <div class="carousel" role="region" aria-live="polite" aria-roledescription="carrossel de imagens">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=720&q=80" alt="Praia paradisíaca com coqueiros e mar azul" class="active" />
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=720&q=80" alt="Montanhas nevadas sob céu azul" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=720&q=80" alt="Cidade antiga com arquitetura histórica à noite" />
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=720&q=80" alt="Deserto com dunas douradas ao pôr do sol" />
+      <div class="carousel-buttons">
+        <button id="prevBtn" aria-label="Imagem anterior">&#10094;</button>
+        <button id="nextBtn" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+      <div class="carousel-indicators" role="tablist" aria-label="Indicadores de imagens">
+        <button aria-label="Ir para imagem 1" class="active" role="tab" aria-selected="true" tabindex="0"></button>
+        <button aria-label="Ir para imagem 2" role="tab" tabindex="-1"></button>
+        <button aria-label="Ir para imagem 3" role="tab" tabindex="-1"></button>
+        <button aria-label="Ir para imagem 4" role="tab" tabindex="-1"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="about" aria-label="Informações sobre a empresa">
+    <h3>Sobre Nós</h3>
+    <p>Somos especialistas em criar experiências de viagens memoráveis e personalizadas. Nossa equipe apaixonada trabalha para oferecer pacotes únicos que combinam conforto, aventura e cultura em destinos incríveis pelo mundo.</p>
+  </section>
+
+  <section id="depoimentos" class="testimonials" aria-label="Depoimentos de clientes">
+    <h3>O que dizem nossos viajantes</h3>
+    <div class="testimonial-card" tabindex="0">
+      "Minha viagem para o Caribe foi simplesmente perfeita. O atendimento, organização e destino superaram todas as expectativas!"
+      <div class="testimonial-author">- Ana Paula</div>
+    </div>
+    <div class="testimonial-card" tabindex="0">
+      "Os Alpes Suíços me encantaram! Uma experiência de inverno maravilhosa e inesquecível. Recomendo muito a equipe do Explore Mundo."
+      <div class="testimonial-author">- Jorge Silva</div>
+    </div>
+    <div class="testimonial-card" tabindex="0">
+      "Paris nunca foi tão encantadora, e a ajuda na organização facilitou tudo. Voltarei a viajar com eles com certeza!"
+      <div class="testimonial-author">- Marina Costa</div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact" aria-label="Formulário de contato">
+    <h3>Contato & Orçamento</h3>
+    <form onsubmit="handleSubmit(event)" novalidate>
+      <label for="name">Nome Completo</label>
+      <input type="text" id="name" name="name" required placeholder="Seu nome completo" aria-required="true" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="seu@email.com" aria-required="true" />
+
+      <label for="message">Mensagem</label>
+      <textarea id="message" name="message" required placeholder="Conte-nos sobre sua viagem dos sonhos" aria-required="true"></textarea>
+
+      <button type="submit" class="submit-btn" aria-label="Enviar formulário de contato">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2024 Explore Mundo - Todos os direitos reservados
+  </footer>
+
+  <script>
+    // Carrossel funcionalidade
+    (function() {
+      const imgs = document.querySelectorAll('.carousel img');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const indicators = document.querySelectorAll('.carousel-indicators button');
+      let currentIndex = 0;
+      let autoSlideInterval;
+      const slideDuration = 5000; // 5 segundos
+
+      function showSlide(index) {
+        if (index < 0) index = imgs.length - 1;
+        if (index >= imgs.length) index = 0;
+        imgs.forEach((img, i) => img.classList.toggle('active', i === index));
+        indicators.forEach((btn, i) => {
+          btn.classList.toggle('active', i === index);
+          btn.setAttribute('aria-selected', i === index ? 'true' : 'false');
+          btn.tabIndex = i === index ? 0 : -1;
+        });
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        showSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentIndex - 1);
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, slideDuration);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideInterval) clearInterval(autoSlideInterval);
+      }
+
+      prevBtn.onclick = () => {
+        prevSlide();
+        startAutoSlide();
+      };
+      nextBtn.onclick = () => {
+        nextSlide();
+        startAutoSlide();
+      };
+
+      indicators.forEach((btn, i) => {
+        btn.onclick = () => {
+          showSlide(i);
+          startAutoSlide();
+        };
+      });
+
+      // Swipe no mobile
+      let touchStartX = null;
+      let touchEndX = null;
+
+      function handleGesture() {
+        if (!touchStartX || !touchEndX) return;
+        let diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+          startAutoSlide();
+        }
+        touchStartX = null;
+        touchEndX = null;
+      }
+
+      const carousel = document.querySelector('.carousel');
+      carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      carousel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleGesture();
+      });
+
+      showSlide(0);
+      startAutoSlide();
+    })();
+
+    // Formulário simples de contato com validação e feedback
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      // Validação simples de email
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Por favor, insira um email válido.');
+        form.email.focus();
+        return;
+      }
+
+      alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Responderemos em breve.`);
+      form.reset();
+    }
+  </script>
+</body>
+</html>
+
